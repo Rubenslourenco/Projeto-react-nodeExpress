@@ -1,15 +1,43 @@
 import "./style.css";
+import Trash from "../../assets/trash.svg";
 
 function Home() {
+  const users = [
+    {
+      id: "213543584864",
+      name: "Rubens",
+      idade: "28",
+      email: "rubens@gmail.com",
+    },
+    {
+      id: "9746545465864",
+      name: "Aline",
+      idade: "33",
+      email: "line@gmail.com",
+    },
+  ];
   return (
-    <div>
+    <div className="container">
       <form action="">
         <h1>Cadastro de Usuarios</h1>
-        <input type="text" name="nome" id="" />
-        <input type="number" name="idade" id="" />
-        <input type="email" name="email" id="" />
-        <button type="button"></button>
+        <input placeholder="Nome" type="text" name="nome" id="" />
+        <input  placeholder="Idade" type="number" name="idade" id="" />
+        <input placeholder="E-mail" type="email" name="email" id="" />
+        <button type="button">Cadastrar</button>
       </form>
+      {users.map((user) => (
+        <div key={user.id}>
+          <div>
+            <p>Nome: {user.name}</p>
+            <p>Idade: {user.idade}</p>
+            <p>Email: {user.email}</p>
+          </div>
+          <button>
+            <img src={Trash} alt="" />
+          </button>
+        </div>
+      ))}
+    
     </div>
   );
 }
